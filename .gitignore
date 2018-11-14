@@ -50,6 +50,7 @@ coverage.xml
 # Translations
 *.mo
 *.pot
+*.pyc
 
 # Django stuff:
 *.log
@@ -84,6 +85,7 @@ celerybeat-schedule
 # Environments
 .env
 .venv
+.idea
 env/
 venv/
 ENV/

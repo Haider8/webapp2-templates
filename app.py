@@ -48,7 +48,13 @@ class Handler(webapp2.RequestHandler):
 
 class MainPage(Handler):
     def get(self):
-        self.render("shopping_list.html", name=self.request.get('name'))
+        n = self.request.get('n')
+        self.response.out.write(n)
+        if n and n.isdigit():
+            n = int(n)
+
+        self.render("shopping_list.html", n=n)
+        self.response.out.write(n)
         # output = form_html
         # output_hidden = ""
         #

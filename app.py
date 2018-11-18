@@ -49,12 +49,22 @@ class Handler(webapp2.RequestHandler):
 class MainPage(Handler):
     def get(self):
         n = self.request.get('n')
-        self.response.out.write(n)
+        #self.response.out.write(n)
         if n and n.isdigit():
             n = int(n)
 
         self.render("shopping_list.html", n=n)
-        self.response.out.write(n)
+
+
+class FizzBUzzHandler(Handler):
+    def get(self):
+        n = self.request.get('n', 0)
+        if n:
+            n = int(n)
+        self.render('fizzbuzz.html', n=n)
+
+
+        #self.response.out.write(n)
         # output = form_html
         # output_hidden = ""
         #
@@ -73,4 +83,5 @@ class MainPage(Handler):
         # self.write(output)
 
 
-app = webapp2.WSGIApplication([('/', MainPage), ], debug=True)
+app = webapp2.WSGIApplication([('/', MainPage),
+                               ('/fizzbuzz', FizzBUzzHandler)], debug=True)

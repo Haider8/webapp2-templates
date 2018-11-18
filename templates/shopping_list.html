@@ -12,9 +12,20 @@
 
     {% if n == 1 %}
         n equals 1
+    {% elif n == 2 %}
+        n equals 2
     {% else %}
-        n not equals 1
+        n not equals 1 or 2
     {% endif %}
+
+
+    {% if n is number %}
+    <ol>
+    {% for x in range(1, n+1) %}
+        <li>{{x ** 2}}</li>
+    {% endfor %}
+    {% endif %}
+    </ol>
 </form>
 </body>
 </html>
